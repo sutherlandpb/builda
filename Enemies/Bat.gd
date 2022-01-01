@@ -76,7 +76,7 @@ func _on_Stats_no_health():
 func accelerate_towards_point(point, delta):
 	var direction = global_position.direction_to(point)
 	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)	
-	sprite.flip_h = velocity.x < 0
+	sprite.flip_h = velocity.x > 0
 	
 func seek_player():
 	if playerDetectionZone.can_see_player():

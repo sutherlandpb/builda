@@ -8,3 +8,5 @@ margin_top = 49.0
 margin_right = 209.0
 margin_bottom = 153.0
 script = ExtResource( 1 )
+
+[connection signal="popup_hide" from="." to="." method="_on_Backpack_popup_hide"]

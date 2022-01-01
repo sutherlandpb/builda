@@ -11,5 +11,10 @@ func _physics_process(delta):
 			hide()
 		else:
 			isVisible = true
-			popup(Rect2(200, 70, 160, 100))
+			popup(Rect2(450, 70, 160, 100))
 			
+
+
+
+func _on_Backpack_popup_hide():
+	isVisible = false
