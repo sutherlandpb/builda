@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Builda.png-0c2c259b8ba5d852ab924032029ff953.stex"
+path="res://.import/builda.png-1945b64bde027f3bc3870902e66c4b3e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Builda.png"
-dest_files=[ "res://.import/Builda.png-0c2c259b8ba5d852ab924032029ff953.stex" ]
+source_file="res://Player/builda.png"
+dest_files=[ "res://.import/builda.png-1945b64bde027f3bc3870902e66c4b3e.stex" ]
 
 [params]
 

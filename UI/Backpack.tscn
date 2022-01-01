@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Backpack.gd" type="Script" id=1]
+
+[node name="Backpack" type="PopupPanel"]
+margin_left = 23.0
+margin_top = 49.0
+margin_right = 209.0
+margin_bottom = 153.0
+script = ExtResource( 1 )
