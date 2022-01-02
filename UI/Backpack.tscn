@@ -3,10 +3,10 @@
 [ext_resource path="res://UI/Backpack.gd" type="Script" id=1]
 
 [node name="Backpack" type="PopupPanel"]
-margin_left = 23.0
-margin_top = 49.0
-margin_right = 209.0
-margin_bottom = 153.0
+margin_left = 150.0
+margin_top = 70.0
+margin_right = 310.0
+margin_bottom = 170.0
 script = ExtResource( 1 )
 
 [connection signal="popup_hide" from="." to="." method="_on_Backpack_popup_hide"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Weapons/wooden club.png" type="Texture" id=1]
+[ext_resource path="res://HitBoxes/HitBox.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 3.0
+height = 4.0
+
+[node name="Club" type="StaticBody2D"]
+position = Vector2( -4, -4 )
+rotation = 5.58505
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -6 )
+flip_h = true
+
+[node name="HitBox" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2( 0, -6 )
+shape = SubResource( 1 )
+
+[editable path="HitBox"]

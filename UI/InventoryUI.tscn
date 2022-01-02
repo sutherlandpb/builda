@@ -11,10 +11,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
+[node name="GrassLabel" type="Label" parent="."]
 margin_right = 67.0
 margin_bottom = 14.0
 text = "grass: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WoodLabel" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 18.0
+margin_right = 41.0
+margin_bottom = 32.0
+text = "wood: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
