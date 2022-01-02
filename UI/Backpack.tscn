@@ -1,12 +1,32 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://UI/Backpack.gd" type="Script" id=1]
+[ext_resource path="res://UI/wood_block_button_pressed.png" type="Texture" id=2]
+[ext_resource path="res://UI/wood_block_button.png" type="Texture" id=3]
 
 [node name="Backpack" type="PopupPanel"]
-margin_left = 150.0
-margin_top = 70.0
-margin_right = 310.0
-margin_bottom = 170.0
+margin_left = 149.0
+margin_top = 68.0
+margin_right = 309.0
+margin_bottom = 168.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WoodBlockButton" type="TextureButton" parent="."]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 22.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.5, 0.5 )
+toggle_mode = true
+shortcut_in_tooltip = false
+pressed = true
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="popup_hide" from="." to="." method="_on_Backpack_popup_hide"]

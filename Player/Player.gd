@@ -8,9 +8,12 @@ export var FRICTION = 500
 enum {
 	MOVE,
 	ROLL,
-	ATTACK
+	ATTACK,
+	PLACE
 }
 const PlayerHurtSound = preload("res://Player/PlayerHurtSound.tscn")
+const WoodBlock = preload("res://Buildable/WoodBlock.tscn")
+
 var state = MOVE
 var velocity = Vector2.ZERO
 var roll_vector = Vector2.LEFT
@@ -39,6 +42,8 @@ func _physics_process(delta):
 			roll_state(delta)
 		ATTACK:
 			attack_state(delta)
+		PLACE:
+			place_state(delta)	
 	
 func move_state(delta):
 	var input_vector = Vector2.ZERO
@@ -64,7 +69,10 @@ func move_state(delta):
 		state = ATTACK
 	elif Input.is_action_just_pressed("Roll"):
 		state = ROLL
-
+	elif Input.is_action_just_pressed("PlaceBlock"):
+		print("detected place action")
+		state = PLACE
+		
 func attack_state(delta):
 	velocity = Vector2.ZERO
 	animationState.travel("attack")
@@ -72,6 +80,9 @@ func roll_state(delta):
 	velocity = roll_vector * ROLL_SPEED	
 	animationState.travel("roll")
 	move()
+func place_state(delta):
+	place_block(get_global_mouse_position())
+	state = MOVE
 	
 func move():
 	velocity = move_and_slide(velocity)
@@ -97,3 +108,9 @@ func _on_HurtBox_invincibility_started():
 
 func _on_HurtBox_invincibility_ended():
 	blinkAnimationPlayer.play("Stop")
+	
+func place_block(position):
+	var woodBlock = WoodBlock.instance()
+	get_parent().add_child(woodBlock)
+	woodBlock.global_position = position
+	
