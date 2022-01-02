@@ -18,6 +18,7 @@ var state = MOVE
 var velocity = Vector2.ZERO
 var roll_vector = Vector2.LEFT
 var stats = PlayerStats
+var grid_size = Vector2(8, 8)
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -70,7 +71,6 @@ func move_state(delta):
 	elif Input.is_action_just_pressed("Roll"):
 		state = ROLL
 	elif Input.is_action_just_pressed("PlaceBlock"):
-		print("detected place action")
 		state = PLACE
 		
 func attack_state(delta):
@@ -110,7 +110,9 @@ func _on_HurtBox_invincibility_ended():
 	blinkAnimationPlayer.play("Stop")
 	
 func place_block(position):
-	var woodBlock = WoodBlock.instance()
-	get_parent().add_child(woodBlock)
-	woodBlock.global_position = position
+	var distance_to_click = position.distance_to(global_position)
+	if distance_to_click > 10 && distance_to_click < 30: 
+		var woodBlock = WoodBlock.instance()
+		get_parent().add_child(woodBlock)
+		woodBlock.global_position = position.snapped(grid_size)
 	
