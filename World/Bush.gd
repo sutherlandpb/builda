@@ -13,6 +13,7 @@ export var RESPAWN_TIME_MAX = 30
 var playerStats = PlayerStats
 
 onready var timer = $Timer
+onready var hurtbox = $Hurtbox
 
 func createGrassEffect():
 	var grassEffect = GrassEffect.instance()
@@ -28,6 +29,8 @@ func createGrassEffect():
 func _on_HurtBox_area_entered(area):
 	if sprite.visible == true:
 		stats.health -= area.damage
+		hurtBox.create_hit_effect()
+		
 
 func _on_Timer_timeout():
 	sprite.visible = true

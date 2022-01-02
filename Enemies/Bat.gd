@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn") 
+const HealthPickup = preload("res://Pickups/HealthPickup.tscn")
+
 export var ACCELERATION = 300
 export var MAX_SPEED = 50
 export var FRICTION = 200
@@ -72,7 +74,15 @@ func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
-	
+	roll_for_drop();
+
+func roll_for_drop():
+	var drop = rand_range(1,10)
+	if drop > 4:
+		var loot = HealthPickup.instance()
+		get_parent().add_child(loot)
+		loot.global_position = global_position
+		
 func accelerate_towards_point(point, delta):
 	var direction = global_position.direction_to(point)
 	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)	
